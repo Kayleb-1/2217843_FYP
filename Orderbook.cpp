@@ -1,16 +1,7 @@
 #include <iostream>
+#include <map>
+#include <unordered_map>
 
-// What does the orderbook need to do.
-// Buy
-// Sell
-// Cancel
-
-/*
-
-    Price, OrderID, Quantity, OrderSide, OrderType 
-
-
-*/
 
 enum class OrderType {
 
@@ -28,9 +19,11 @@ enum class OrderSide {
 
 // fixed sizes cross platform,
 // Quantity and orderID can and should never be negative
-using Price = std::int32_t;
+using Price = std::double_t;
 using Quantity = std::uint64_t;
 using OrderId = std::uint64_t;
+
+
 
 /*
     Order - Class functions for a particular order, required functions tbd,
@@ -61,12 +54,31 @@ public:
     }
 
 private:
+    // Price, OrderID, Quantity, OrderSide, OrderType
+
     Quantity _quantity;
     Quantity _currentQuantity;
     OrderId _orderId;
     Price _price;
     OrderSide _orderSide;
     OrderType _orderType;
+
+
+};
+
+
+/*
+    Should atleast support
+
+    Add order (Buy/Sell)
+    Cancel (important to account for in simulations due to 80% order cancel rate
+
+*/
+
+class Orderbook {
+
+    // Orders grouped by price --  15$ : 
+    std::map<
 
 
 };
